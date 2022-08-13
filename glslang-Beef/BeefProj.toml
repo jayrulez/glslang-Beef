@@ -1,0 +1,22 @@
+FileVersion = 1
+
+[Project]
+Name = "glslang-Beef"
+TargetType = "BeefLib"
+StartupObject = "glslang_Beef.Program"
+
+[Configs.Debug.Win64]
+LibPaths = ["$(ProjectDir)/dist/Win64/Debug/glslangd.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/Win64/Debug/*.dll\")"]
+
+[Configs.Release.Win64]
+LibPaths = ["$(ProjectDir)/dist/Win64/Release/glslang.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/Win64/Release/*.dll\")"]
+
+[Configs.Test.Win64]
+LibPaths = ["$(ProjectDir)/dist/Win64/Debug/glslangd.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/Win64/Debug/*.dll\")"]
+
+[Configs.Paranoid.Win64]
+LibPaths = ["$(ProjectDir)/dist/Win64/Release/glslang.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/Win64/Release/*.dll\")"]

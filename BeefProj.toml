@@ -1,6 +1,0 @@
-FileVersion = 1
-
-[Project]
-Name = "glslang-Beef"
-TargetType = "BeefLib"
-StartupObject = "glslang_Beef.Program"
