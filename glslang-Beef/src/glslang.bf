@@ -204,7 +204,6 @@ namespace glslang_Beef
 	}
 
 	[CRepr]
-	//struct glslang_shader_t;
 	typealias glslang_shader_t = void;
 
 	[CRepr]
@@ -503,17 +502,21 @@ namespace glslang_Beef
 
 	public static
 	{
-		[CallingConvention(.Stdcall), CLink] public static extern int glslang_initialize_process();
+		[CallingConvention(.Stdcall), CLink] public static extern int32 glslang_initialize_process();
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_finalize_process();
+		
+		[CallingConvention(.Stdcall), CLink] public static extern glslang_resource_t* glslang_default_resource();
+		[CallingConvention(.Stdcall), CLink] public static extern char8* glslang_default_resource_string();
+		[CallingConvention(.Stdcall), CLink] public static extern void glslang_decode_resource_limits(glslang_resource_t* resources, char8* config);
 
 		[CallingConvention(.Stdcall), CLink] public static extern glslang_shader_t* glslang_shader_create(glslang_input_t* input);
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_shader_delete(glslang_shader_t* shader);
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_shader_shift_binding(glslang_shader_t* shader, glslang_resource_type_t res, uint32 @base);
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_shader_shift_binding_for_set(glslang_shader_t* shader, glslang_resource_type_t res, uint32 @base, uint32 set);
-		[CallingConvention(.Stdcall), CLink] public static extern void glslang_shader_set_options(glslang_shader_t* shader, int options); // glslang_shader_options_t
-		[CallingConvention(.Stdcall), CLink] public static extern void glslang_shader_set_glsl_version(glslang_shader_t* shader, int version);
-		[CallingConvention(.Stdcall), CLink] public static extern int glslang_shader_preprocess(glslang_shader_t* shader, glslang_input_t* input);
-		[CallingConvention(.Stdcall), CLink] public static extern int glslang_shader_parse(glslang_shader_t* shader, glslang_input_t* input);
+		[CallingConvention(.Stdcall), CLink] public static extern void glslang_shader_set_options(glslang_shader_t* shader, int32 options); // glslang_shader_options_t
+		[CallingConvention(.Stdcall), CLink] public static extern void glslang_shader_set_glsl_version(glslang_shader_t* shader, int32 version);
+		[CallingConvention(.Stdcall), CLink] public static extern int32 glslang_shader_preprocess(glslang_shader_t* shader, glslang_input_t* input);
+		[CallingConvention(.Stdcall), CLink] public static extern int32 glslang_shader_parse(glslang_shader_t* shader, glslang_input_t* input);
 		[CallingConvention(.Stdcall), CLink] public static extern char8* glslang_shader_get_preprocessed_code(glslang_shader_t* shader);
 		[CallingConvention(.Stdcall), CLink] public static extern char8* glslang_shader_get_info_log(glslang_shader_t* shader);
 		[CallingConvention(.Stdcall), CLink] public static extern char8* glslang_shader_get_info_debug_log(glslang_shader_t* shader);
@@ -521,10 +524,10 @@ namespace glslang_Beef
 		[CallingConvention(.Stdcall), CLink] public static extern glslang_program_t* glslang_program_create();
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_program_delete(glslang_program_t* program);
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_program_add_shader(glslang_program_t* program, glslang_shader_t* shader);
-		[CallingConvention(.Stdcall), CLink] public static extern int glslang_program_link(glslang_program_t* program, int messages); // glslang_messages_t
+		[CallingConvention(.Stdcall), CLink] public static extern int32 glslang_program_link(glslang_program_t* program, int32 messages); // glslang_messages_t
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_program_add_source_text(glslang_program_t* program, glslang_stage_t stage, char8* text, int len);
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_program_set_source_file(glslang_program_t* program, glslang_stage_t stage, char8* file);
-		[CallingConvention(.Stdcall), CLink] public static extern int glslang_program_map_io(glslang_program_t* program);
+		[CallingConvention(.Stdcall), CLink] public static extern int32 glslang_program_map_io(glslang_program_t* program);
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_program_SPIRV_generate(glslang_program_t* program, glslang_stage_t stage);
 		[CallingConvention(.Stdcall), CLink] public static extern void glslang_program_SPIRV_generate_with_options(glslang_program_t* program, glslang_stage_t stage, glslang_spv_options_t* spv_options);
 		[CallingConvention(.Stdcall), CLink] public static extern int glslang_program_SPIRV_get_size(glslang_program_t* program);
