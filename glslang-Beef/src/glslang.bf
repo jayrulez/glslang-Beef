@@ -259,10 +259,15 @@ enum glslang_resource_type_t : int32
 	GLSLANG_RESOURCE_TYPE_COUNT,
 }
 
-public typealias glslang_shader_t = void; //glslang_shader_s;
-public typealias glslang_program_t = void; //glslang_program_s;
-public typealias glslang_mapper_t = void; //glslang_mapper_s;
-public typealias glslang_resolver_t = void; //glslang_resolver_s;
+typealias glslang_shader_s = void;
+typealias glslang_program_s = void;
+typealias glslang_mapper_s = void;
+typealias glslang_resolver_s = void;
+
+public typealias glslang_shader_t = glslang_shader_s;
+public typealias glslang_program_t = glslang_program_s;
+public typealias glslang_mapper_t = glslang_mapper_s;
+public typealias glslang_resolver_t = glslang_resolver_s;
 
 /* Version counterpart */
 [CRepr] struct glslang_version_s
