@@ -35,7 +35,7 @@ namespace glslang_Beef;
 
 /* EShLanguage counterpart */
 [CRepr, AllowDuplicates]
-enum glslang_stage_t
+enum glslang_stage_t : int32
 {
 	GLSLANG_STAGE_VERTEX,
 	GLSLANG_STAGE_TESSCONTROL,
